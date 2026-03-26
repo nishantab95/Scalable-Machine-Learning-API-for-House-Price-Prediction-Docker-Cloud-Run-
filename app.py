@@ -21,13 +21,29 @@ def predict_api():
     output = model.predict(new_data)
     return jsonify(output[0])
 
-@app.route('/predict', methods=['POst'])
+@app.route('/predict', methods=['POST'])
 def predict():
-    data = [float(x) for x in request.form.values()]
-    new_data = np.array(data).reshape(1, -1)
-    print(new_data)
-    output = model.predict(new_data)[0]
-    return render_template('home.html', prediction_text=f'The house price prediction is {output}')
+    data = request.form
 
+    new_data = np.array([
+        int(data['area']),
+        int(data['location']),
+        int(data['bhk']),
+        int(data['bath']),
+        int(data['balcony']),
+        int(data['parking']),
+        int(data['furnishing']),
+        int(data['property_type']),
+        int(data['age'])
+    ]).reshape(1, -1)
+
+    print("INPUT:", new_data)
+
+    output = model.predict(new_data)[0]
+
+    return render_template(
+        'home.html',
+        prediction_text=f'The house price prediction is {output}'
+    )
 if __name__ == '__main__':
     app.run(debug=True)
