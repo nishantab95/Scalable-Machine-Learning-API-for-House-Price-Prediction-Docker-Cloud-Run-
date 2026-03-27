@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD CMD exec gunicorn --workers 4 --bind :${PORT:-8080} app.app:app
+CMD exec gunicorn --workers 4 --bind :${PORT:-8080} app.app:app
