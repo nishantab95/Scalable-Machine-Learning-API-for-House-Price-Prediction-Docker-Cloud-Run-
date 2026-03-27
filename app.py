@@ -36,7 +36,6 @@ def predict():
         int(data['property_type']),
         int(data['age'])
     ]).reshape(1, -1)
-
     print("INPUT:", new_data)
 
     output = model.predict(new_data)[0]
