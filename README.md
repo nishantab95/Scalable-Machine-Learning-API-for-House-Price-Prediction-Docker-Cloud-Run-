@@ -100,10 +100,11 @@ POST /predict
 ## 🧪 Model Performance
 | Metric   | Value            |
 | -------- | ---------------- |
-| R² Score | (Add your value) |
-| MAE      | (Add your value) |
-| RMSE     | (Add your value) |
+| R² Score | 0.550            |
+| MAE      | 2667040.9590     |
+| RMSE     | 3272280.1009     |
 ---
+
 
 ## 🐳 Docker Deployment
 
